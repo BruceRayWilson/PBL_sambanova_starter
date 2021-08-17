@@ -103,4 +103,3 @@ def test(args: argparse.Namespace, model: nn.Module, inputs: Tuple[samba.SambaTe
         gemm1_grad_samba = model.ffn.gemm1.weight.sn_grad
 
         utils.assert_close(gemm1_grad_gold, gemm1_grad_samba, 'ffn__gemm1__weight__grad', threshold=3e-3)
-

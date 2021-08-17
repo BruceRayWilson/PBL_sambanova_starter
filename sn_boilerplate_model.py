@@ -1,4 +1,4 @@
-"""autoCDINN model definition."""
+"""boilerplate model definition."""
 #import argparse
 #import sys
 #from typing import Tuple

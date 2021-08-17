@@ -32,7 +32,7 @@ def main(argv):
 
     inputs = (ipt, tgt)
 
-    # Instantiate a optimizer.
+    # Instantiate an optimizer.
     if args.inference:
         optimizer = None
     else:
