@@ -42,12 +42,13 @@ def main(argv):
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
 
+    name = 'ffn_mnist_torch'
     if args.command == "compile":
         # Run model analysis and compile, this step will produce a PEF.
         samba.session.compile(model,
                               inputs,
                               optimizer,
-                              name='ffn_mnist_torch',
+                              name=name,
                               app_dir=utils.get_file_dir(__file__),
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
@@ -59,7 +60,15 @@ def main(argv):
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
     elif args.command == "measure-performance":
-        common_app_driver(args, model, inputs, optimizer, name='ffn_mnist_torch', app_dir=utils.get_file_dir(__file__))
+        common_app_driver(args, model, inputs, optimizer, name=name, app_dir=utils.get_file_dir(__file__))
+        common_app_driver(args=args,
+                            model=model,
+                            inputs=inputs,
+                            name=name,
+                            optim=optimizer,
+                            squeeze_bs_dim=True,
+                            get_output_grads=False,
+                            app_dir=utils.get_file_dir(__file__))
 
 
 if __name__ == '__main__':

@@ -1,20 +1,5 @@
 # Using SambaNova
 
-## Notes
-
-```text
-I use common_app_driver which covers everything: from sambaflow.samba.utils.common import common_app_driver #rcw uncommented
-common_app_driver(args=args,
-                      model=model,
-                      inputs=inputs,
-                      name=name,
-                      optim=optim,
-                      squeeze_bs_dim=True,
-                      get_output_grads=False,
-                      app_dir=utils.get_file_dir(__file__))
-```
-
-
 ## Repo
 
 ```bash
@@ -38,18 +23,18 @@ username@sm-01:~$ export PATH=$PATH:/opt/sambaflow/bin;export OMP_NUM_THREADS=1;
 ## Cloning Repo on SambaNova
 
 ```bash
-username@sm-01:~$ git clone https://github.com/tanwimallick/dcrnn_pytorch/
-Cloning into 'dcrnn_pytorch'...
+username@sm-01:~$ git clone https://github.com/BruceRayWilson/sambanova_starter
+Cloning into 'sambanova_starter'...
 Username for 'https://github.com': < username >
-Password for 'https://username@github.com': < password >
+Password for 'https://username@github.com': < password or PAC >
 
 ## Git
 
 Do any necessary git commands.
 
 ```bash
-[username@medulla1 ~]$ cd dcrnn_pytorch
-[username@medulla1 dcrnn_pytorch]$ git checkout < branch >
+[username@medulla1 ~]$ cd sambanova_starter
+[username@medulla1 sambanova_starter]$ git checkout < branch >
 ```
 
 Example:
@@ -61,7 +46,7 @@ git checkout feature/001-start
 ## Change Directory
 
 ```bash
-# [username@medulla1 ~dcrnn_pytorch]$ cd model/pytorch
+# [username@medulla1 ~sambanova_starter]$ cd model/pytorch
 or
 [username@medulla1 ~]$ cd 3D-PyTorch/model/pytorch
 ```
