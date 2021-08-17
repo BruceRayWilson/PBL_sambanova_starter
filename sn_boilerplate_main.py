@@ -15,6 +15,7 @@ import sambaflow.samba.utils as utils
 from sambaflow.samba.utils.argparser import parse_app_args
 from sambaflow.samba.utils.pef_utils import get_pefmeta
 from sambaflow.samba.utils.dataset.mnist import dataset_transform
+from sambaflow.samba.utils.common import common_app_driver
 
 from sn_boilerplate_args import *
 from sn_boilerplate_model import *
@@ -57,6 +58,8 @@ def main(argv):
     elif args.command == "run":
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
+    elif args.command == "measure-performance":
+        common_app_driver(args, model, inputs, optimizer, name='ffn_mnist_torch', app_dir=utils.get_file_dir(__file__))
 
 
 if __name__ == '__main__':
