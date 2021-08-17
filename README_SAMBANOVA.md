@@ -14,16 +14,11 @@ common_app_driver(args=args,
                       app_dir=utils.get_file_dir(__file__))
 ```
 
-## Running Original Code
-
-```bash
-python dcrnn_train_pytorch.py --config_filename=data/model/dcrnn_la.yaml
-```
 
 ## Repo
 
 ```bash
-git clone https://github.com/tanwimallick/dcrnn_pytorch/
+git clone https://github.com/BruceRayWilson/sambanova_starter
 ```
 
 ## SSH to SambaNova
@@ -78,9 +73,20 @@ See the folling link for a list of arguments.
 
 ## Commands
 
+### Run one file
+
 ```bash
-python dcrnn.py compile --config_filename="./data/model/dcrnn_test_config.yaml" -b=1 --pef-name="dcrnn" --output-folder="pef"
-python dcrnn.py test --pef="pef/dcrnn/dcrnn.pef"
-python dcrnn.py run --config_filename="./data/model/dcrnn_test_config.yaml" --pef="pef/dcrnn/dcrnn.pef"
-python dcrnn.py measure-performance --pef="pef/dcrnn/dcrnn.pef"
+python sn_boilerplate.py compile -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
+python sn_boilerplate.py test --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+python sn_boilerplate.py run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+python sn_boilerplate.py measure-performance --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+```
+
+### Run as multiple files.
+
+```bash
+python sn_boilerplate_main.py compile -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
+python sn_boilerplate_main.py test --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+python sn_boilerplate_main.py run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+python sn_boilerplate_main.py measure-performance --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 ```
