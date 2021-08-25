@@ -21,6 +21,10 @@ from sn_boilerplate_args import *
 from sn_boilerplate_model import *
 from sn_boilerplate_other import *
 
+def consumeVariables(ipt, tgt):
+    """Consume variables because SambaNova uses magic."""
+    pass
+
 def main(argv):
     """Run main code."""
     utils.set_seed(256)
@@ -29,6 +33,7 @@ def main(argv):
     ipt, tgt = FFNLogReg.get_fake_inputs(args)
     model = FFNLogReg(args.num_features, args.ffn_dim_1, args.ffn_dim_2, args.num_classes)
 
+    consumeVariables(ipt, tgt)
     samba.from_torch_(model)
 
     inputs = (ipt, tgt)
