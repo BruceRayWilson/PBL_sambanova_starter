@@ -79,16 +79,22 @@ class FFNLogReg(nn.Module):
 
         Args:
             args: CLI arguments.
+
+        Outputs:
+            X_randn: A Samba tensor representing the correct shape for model inputs.
+            Y_randint: A Samba tensor representing the correct shape for model outputs.
         """
-        ipt = samba.randn(args.batch_size, args.num_features, name='image', batch_dim=0).bfloat16().float()
+        X_randn = samba.randn(args.batch_size, args.num_features, name='image', batch_dim=0).bfloat16().float()
+
         low_inclusive = 0
         high_exclusive = args.num_classes
+
         # The size/shape of the output tensor.
         size = (args.batch_size, )
-        tgt = samba.randint(low_inclusive,
-                            high_exclusive,
-                            size,
-                            name='label',
-                            batch_dim=0)
+        Y_randint = samba.randint(  low_inclusive,
+                                    high_exclusive,
+                                    size,
+                                    name='label',
+                                    batch_dim=0)
 
-        return ipt, tgt
+        return X_randn, Y_randint
