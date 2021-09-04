@@ -1,4 +1,4 @@
-"""boilerplate model definition."""
+"""Boilerplate model definition."""
 #import argparse
 #import sys
 #from typing import Tuple
@@ -43,6 +43,7 @@ class LogReg(nn.Module):
         self.lin_layer = nn.Linear(in_features=num_features, out_features=num_classes, bias=False)
         self.criterion = nn.CrossEntropyLoss()
 
+    # Note: The forward method can take more than two arguments.
     def forward(self, inputs: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
         """Step forward."""
         out = self.lin_layer(inputs)
@@ -56,6 +57,8 @@ class FFNLogReg(nn.Module):
     def __init__(self, num_features: int, ffn_embedding_size: int, embedding_size: int, num_classes: int) -> None:
         """Initialize the class."""
         super().__init__()
+
+        # Note: You can have more than on network in a model.
         self.ffn = FFN(num_features, ffn_embedding_size, embedding_size)
         self.logreg = LogReg(embedding_size, num_classes)
         self._init_params()
@@ -68,6 +71,8 @@ class FFNLogReg(nn.Module):
         """Step forward."""
         out = self.ffn(inputs)
         loss, out = self.logreg(out, targets)
+
+        # Note:  You can return more than one tensor from the forward method.
         return loss, out
 
     @staticmethod

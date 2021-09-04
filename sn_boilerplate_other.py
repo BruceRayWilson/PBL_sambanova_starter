@@ -78,7 +78,7 @@ def train(args: argparse.Namespace, model: nn.Module, optimizer: samba.optim.SGD
 
 def test(args: argparse.Namespace, model: nn.Module, inputs: Tuple[samba.SambaTensor],
          outputs: Tuple[samba.SambaTensor]) -> None:
-    """Test the model."""
+    """Test the model by compairing the Samba and Torch outputs."""
     samba.session.tracing = False
     outputs_gold = model(*inputs)
 
