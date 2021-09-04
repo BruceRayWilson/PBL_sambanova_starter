@@ -81,6 +81,14 @@ class FFNLogReg(nn.Module):
             args: CLI arguments.
         """
         ipt = samba.randn(args.batch_size, args.num_features, name='image', batch_dim=0).bfloat16().float()
-        tgt = samba.randint(args.num_classes, (args.batch_size, ), name='label', batch_dim=0)
+        low_inclusive = 0
+        high_exclusive = args.num_classes
+        # The size/shape of the output tensor.
+        size = (args.batch_size, )
+        tgt = samba.randint(low_inclusive,
+                            high_exclusive,
+                            size,
+                            name='label',
+                            batch_dim=0)
 
         return ipt, tgt

@@ -19,3 +19,5 @@ def add_run_args(parser: argparse.ArgumentParser):
                         type=str,
                         default='mnist_data',
                         help="The folder to download the MNIST dataset to.")
+
+
