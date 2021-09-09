@@ -71,13 +71,13 @@ def main(argv):
         train(args, model, optimizer)
 
     elif args.command == "measure-performance":
-        common_app_driver(args, model, inputs, optimizer, name=name, app_dir=utils.get_file_dir(__file__))
-        common_app_driver(args=args,
+        # Contact SambaNova if output gradients are needed to calculate loss on the host.
+        common_app_driver(  args=args,
                             model=model,
                             inputs=inputs,
                             name=name,
                             optim=optimizer,
-                            squeeze_bs_dim=True,
+                            squeeze_bs_dim=False,
                             get_output_grads=False,
                             app_dir=utils.get_file_dir(__file__))
 
