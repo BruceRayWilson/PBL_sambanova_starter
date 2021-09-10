@@ -8,6 +8,7 @@ import sys
 #import torch
 #import torch.nn as nn
 #import torchvision
+import torch.distributed as dist
 
 from sambaflow import samba
 
@@ -67,6 +68,10 @@ def main(argv):
         test(args, model, inputs, outputs)
 
     elif args.command == "run":
+        rank, size
+        backend = 'gloo'
+        dist.init_process_group(backend, rank=rank, world_size=size)
+
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
 
