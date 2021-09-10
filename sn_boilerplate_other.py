@@ -66,7 +66,7 @@ def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataL
                                               train=False,
                                               transform=dataset_transform(args))
 
-    print('Distributed run: {args.distributed_run}')
+    print(f'Distributed run: {args.distributed_run}')
     if args.distributed_run:
         train_sampler = DistributedSampler(train_dataset)
         shuffle = False
