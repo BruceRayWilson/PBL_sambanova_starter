@@ -1,11 +1,12 @@
 import argparse
-import sys
+#import sys
 from typing import Tuple
 
 
 import torch
 import torch.nn as nn
 import torchvision
+from torch.utils.data.distributed import DistributedSampler
 
 from sambaflow import samba
 
@@ -13,6 +14,46 @@ import sambaflow.samba.utils as utils
 from sambaflow.samba.utils.argparser import parse_app_args
 from sambaflow.samba.utils.pef_utils import get_pefmeta
 from sambaflow.samba.utils.dataset.mnist import dataset_transform
+
+
+def prepare_dataloaders_original(hparams):
+    # Get data, data loaders and collate function ready
+    trainset = TextMelLoader(hparams.training_files, hparams)
+    valset = TextMelLoader(hparams.validation_files, hparams)
+    collate_fn = TextMelCollate(hparams.n_frames_per_step)
+
+    if hparams.distributed_run:
+        train_sampler = DistributedSampler(trainset)
+        shuffle = False
+    else:
+        train_sampler = None
+        shuffle = True
+
+    train_loader = DataLoader(trainset, num_workers=1, shuffle=shuffle,
+                              sampler=train_sampler,
+                              batch_size=hparams.batch_size, pin_memory=False,
+                              drop_last=True, collate_fn=collate_fn)
+    return train_loader, valset, collate_fn
+
+
+def prepare_dataloaders(args: argparse.Namespace) -> Tuple[torch.utils.data.DataLoader]:
+    # Get data, data loaders and collate function ready
+    trainset = TextMelLoader(hparams.training_files, hparams)
+    valset = TextMelLoader(hparams.validation_files, hparams)
+    collate_fn = TextMelCollate(hparams.n_frames_per_step)
+
+    if hparams.distributed_run:
+        train_sampler = DistributedSampler(trainset)
+        shuffle = False
+    else:
+        train_sampler = None
+        shuffle = True
+
+    train_loader = DataLoader(trainset, num_workers=1, shuffle=shuffle,
+                              sampler=train_sampler,
+                              batch_size=hparams.batch_size, pin_memory=False,
+                              drop_last=True, collate_fn=collate_fn)
+    return train_loader, valset, collate_fn
 
 
 def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataLoader]:
@@ -25,9 +66,28 @@ def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataL
                                               train=False,
                                               transform=dataset_transform(args))
 
+    print('Distributed run: {args.distributed_run}')
+    if args.distributed_run:
+        train_sampler = DistributedSampler(train_dataset)
+        shuffle = False
+    else:
+        train_sampler = None
+        shuffle = True
+
     # Data loader (input pipeline)
-    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=args.batch_size, shuffle=True)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=args.batch_size, shuffle=False)
+    train_loader = torch.utils.data.DataLoader( dataset=train_dataset,
+                                                num_workers=1,
+                                                sampler=train_sampler,
+                                                batch_size=args.batch_size,
+                                                shuffle=shuffle,
+                                                drop_last=True
+                                                )
+
+    test_loader = torch.utils.data.DataLoader(  dataset=test_dataset,
+                                                batch_size=args.batch_size,
+                                                shuffle=False,
+                                                drop_last=True
+                                                )
     return train_loader, test_loader
 
 

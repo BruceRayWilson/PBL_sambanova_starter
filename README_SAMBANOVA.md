@@ -56,20 +56,7 @@ or
 See the folling link for a list of arguments.
 [https://confluence.cels.anl.gov/display/AI/SambaNova#SambaNova-Arguments](https://confluence.cels.anl.gov/display/AI/SambaNova#SambaNova-Arguments)
 
-## Commands
-
-### Run
-
-Runs should now be made with sbatch.  See next section.
-
-```bash
-python sn_boilerplate_main.py compile -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
-python sn_boilerplate_main.py test --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-python sn_boilerplate_main.py run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-python sn_boilerplate_main.py measure-performance --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-```
-
-### Sbatch
+## Sbatch
 
 ```bash
 sbatch run.sh
