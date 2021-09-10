@@ -68,8 +68,8 @@ def main(argv):
         test(args, model, inputs, outputs)
 
     elif args.command == "run":
-        backend = 'mpi'
-        dist.init_process_group(backend)
+        #backend = 'mpi'
+        #dist.init_process_group(backend)
 
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
