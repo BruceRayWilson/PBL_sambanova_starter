@@ -15,7 +15,7 @@ from sambaflow.samba.utils.argparser import parse_app_args
 from sambaflow.samba.utils.pef_utils import get_pefmeta
 from sambaflow.samba.utils.dataset.mnist import dataset_transform
 
-
+"""
 def prepare_dataloaders_original(hparams):
     # Get data, data loaders and collate function ready
     trainset = TextMelLoader(hparams.training_files, hparams)
@@ -54,6 +54,7 @@ def prepare_dataloaders(args: argparse.Namespace) -> Tuple[torch.utils.data.Data
                               batch_size=hparams.batch_size, pin_memory=False,
                               drop_last=True, collate_fn=collate_fn)
     return train_loader, valset, collate_fn
+"""
 
 
 def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataLoader]:
@@ -66,8 +67,8 @@ def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataL
                                               train=False,
                                               transform=dataset_transform(args))
 
-    print(f'Distributed run: {args.distributed_run}')
-    if args.distributed_run:
+    print(f'Distributed run: {args.data_parallel}')
+    if args.data_parallel:
         train_sampler = DistributedSampler(train_dataset)
         shuffle = False
     else:

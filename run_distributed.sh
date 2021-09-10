@@ -9,7 +9,13 @@ snp
 
 # Change this directory path as necessary.
 cd ~/sambanova_starter
-python sn_boilerplate_main.py compile -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
-python sn_boilerplate_main.py test --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-python sn_boilerplate_main.py run --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-python sn_boilerplate_main.py measure-performance --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+
+# ws = world_size and its value really doesn't matter for a compile.
+python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
+
+#python sn_boilerplate_main.py test --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+
+#python sn_boilerplate_main.py run --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+/opt/mpich-3.3.2/bin/mpirun -np 2 --host $HOST_NAMES $X python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+
+#python sn_boilerplate_main.py measure-performance --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
