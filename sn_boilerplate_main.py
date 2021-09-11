@@ -30,7 +30,6 @@ def main(argv):
     """Run main code."""
     utils.set_seed(256)
     args = parse_app_args(argv=argv, common_parser_fn=add_args, run_parser_fn=add_run_args)
-    print(f'args: {args}')
 
     X, Y  = FFNLogReg.get_fake_inputs(args)
     model = FFNLogReg(args.num_features, args.ffn_dim_1, args.ffn_dim_2, args.num_classes)
@@ -55,6 +54,7 @@ def main(argv):
 
     if args.command == "compile":
         # Run model analysis and compile. This step will produce a PEF.
+        print(f'args: {args}')
         samba.session.compile(model,
                               inputs,
                               optimizer,
@@ -64,6 +64,7 @@ def main(argv):
                               pef_metadata=get_pefmeta(args, model))
         # If running two models, would have to change args.pef='pef/sn_boilerplate/sn_boilerplate.pef'.
         args.pef='pef/sn_boilerplate/sn_boilerplate_2.pef'
+        print(f'args: {args}')
         samba.session.compile(model,
                               inputs,
                               optimizer,
