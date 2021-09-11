@@ -63,7 +63,7 @@ def main(argv):
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
         # If running two models, would have to change args.pef='pef/sn_boilerplate/sn_boilerplate.pef'.
-        args.pef='pef/sn_boilerplate/sn_boilerplate_2.pef'
+        args.pef_name='sn_boilerplate_2'
         print(f'args: {args}')
         samba.session.compile(model,
                               inputs,
