@@ -30,6 +30,7 @@ def main(argv):
     """Run main code."""
     utils.set_seed(256)
     args = parse_app_args(argv=argv, common_parser_fn=add_args, run_parser_fn=add_run_args)
+    print(f'args: {args}')
 
     X, Y  = FFNLogReg.get_fake_inputs(args)
     model = FFNLogReg(args.num_features, args.ffn_dim_1, args.ffn_dim_2, args.num_classes)
@@ -53,7 +54,7 @@ def main(argv):
     name = 'ffn_mnist_torch'
 
     if args.command == "compile":
-        # Run model analysis and compile, this step will produce a PEF.
+        # Run model analysis and compile. This step will produce a PEF.
         samba.session.compile(model,
                               inputs,
                               optimizer,
@@ -61,6 +62,7 @@ def main(argv):
                               app_dir=utils.get_file_dir(__file__),
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
+        # If running two models, would have to change args.pef-name="sn_boilerplate".
 
     elif args.command == "test":
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
