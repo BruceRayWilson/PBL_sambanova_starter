@@ -40,7 +40,7 @@ class LogReg(nn.Module):
     def __init__(self, num_features: int, num_classes: int):
         """Initialize the class."""
         super().__init__()
-        self.lin_layer = nn.Linear(in_features=num_features, out_features=num_classes, bias=False)
+        self.lin_layer = nn.DataParallel( nn.Linear(in_features=num_features, out_features=num_classes, bias=False) )
         self.criterion = nn.CrossEntropyLoss()
 
     # Note: The forward method can take more than two arguments.

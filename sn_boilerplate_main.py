@@ -62,6 +62,8 @@ def main(argv):
                               app_dir=utils.get_file_dir(__file__),
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
+
+        """
         # If running two models, would have to change args.pef='pef/sn_boilerplate/sn_boilerplate.pef'.
         args.pef_name='sn_boilerplate_2'
         args.output_folder='pef_2'
@@ -73,6 +75,7 @@ def main(argv):
                               app_dir=utils.get_file_dir(__file__),
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
+        """
 
     elif args.command == "test":
         utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
