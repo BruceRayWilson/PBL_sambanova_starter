@@ -60,4 +60,5 @@ See the folling link for a list of arguments.
 
 ```bash
 sbatch run.sh
+sbatch run_distributed.sh
 ```
