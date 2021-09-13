@@ -41,7 +41,7 @@ class LogReg(nn.Module):
         """Initialize the class."""
         super().__init__()
         self.lin_layer = nn.DataParallel( nn.Linear(in_features=num_features, out_features=num_classes, bias=False) )
-        self.criterion = nn.DataParallel( nn.CrossEntropyLoss() )
+        self.criterion = nn.CrossEntropyLoss()
 
     # Note: The forward method can take more than two arguments.
     def forward(self, inputs: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
