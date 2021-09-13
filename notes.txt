@@ -1,0 +1,128 @@
+(venv) wilsonb@sm-02:~/sambanova_starter$ python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
+[Info][SAMBA][Default] # Placing log files in pef/sn_boilerplate/sn_boilerplate.samba.log
+[Info][MAC][Default] # Placing log files in pef/sn_boilerplate/sn_boilerplate.mac.log
+args: Namespace(acc_test=False,
+batch_size=1,
+command='compile',
+compiled_stats_json=None,
+compiler_configs_file='',
+data_parallel=True,
+debug=False,
+dev_mode=False,
+disable_retry_lower_visible_resources=False,
+distributed_run=False,
+enable_conv_tiling=False,
+ffn_dim_1=32,
+ffn_dim_2=32,
+fp32_params=False,
+grad_accumulation_steps=1,
+host_fifo=False,
+hypersection_arc=False,
+inference=False,
+log_dir=None,
+log_level='warning',
+lr=0.001,
+mac_human_decision=None,
+mac_v1=False,
+mac_v2=False,
+mapping='section',
+metapipe_disable=False,
+microbatch_size=None,
+model_parallel=False,
+momentum=0.0,
+n_chips=1,
+ndtest=False,
+ndtest_mp=False,
+num_classes=10,
+num_epochs=1,
+num_features=784,
+num_spatial_batches=1,
+num_tiles=4,
+output_folder='pef',
+pef_name='sn_boilerplate',
+prism_jobs=None,
+recompute_ratio=0.0,
+section_cut_beam_search=0,
+section_cut_sort_order=1,
+verbose=0,
+weight_decay=0.0001,
+world_size=2)
+[Warning][SAMBA][Default] # The dtype of "targets" to CrossEntropyLoss is torch.int64,
+however only int16 is currently supported,
+implicit conversion will happen
+[Warning][MAC][MemoryOpTransformPass] # Backward graph is trimmed according to requires_grad to save computation.
+[Warning][MAC][WeightShareNodeMergePass] # Backward graph is trimmed according to requires_grad to save computation.
+[Warning][MAC][ReduceCatFaninPass] # Backward graph is trimmed according to requires_grad to save computation.
+[info] Compilation succeeded.
++ /opt/llvm11/bin/clang++ -DAT_PARALLEL_OPENMP=1 -D_THP_CORE -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wno-unused-parameter -Wno-missing-field-initializers -Wno-write-strings -Wno-unknown-pragmas -Wno-missing-braces -fopenmp=libomp -std=gnu++14 -o FfnMnistTorchSamba.cpp.o -c FfnMnistTorchSamba.cpp
++ /opt/llvm11/bin/clang++ -DAT_PARALLEL_OPENMP=1 -D_THP_CORE -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wno-unused-parameter -Wno-missing-field-initializers -Wno-write-strings -Wno-unknown-pragmas -Wno-missing-braces -fopenmp=libomp -std=gnu++14 -o TestFfnMnistTorchSamba.cpp.o -c TestFfnMnistTorchSamba.cpp
++ /opt/llvm11/bin/clang++ -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g TestFfnMnistTorchSamba.cpp.o FfnMnistTorchSamba.cpp.o -o test_arc_sn_boilerplate -L/opt/sambaflow/lib -L/opt/sambaflow/lib64/ -L/usr/local/lib -L/usr/local/lib64 -L/opt/llvm12/lib -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/opt/sambaflow/lib:/opt/llvm12/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/local/lib64:/usr/local/lib/python3.7/site-packages/torch/lib -lPrismPlasmaTemplates -lPrismPlasma -lPrismShared -lRAIL -lRAILUtil -lBufferNode -lisl -lMLIRDynamicWrapper -lCompilerShared -lCompilerAppsCarraraTemplates -lCompilerAppsRAILTemplates /usr/local/lib/python3.7/site-packages/torch/lib/libc10.so -lpef -lunwind -lyaml-cpp -ltcc /usr/local/lib/python3.7/site-packages/torch/lib/libtorch.so /usr/local/lib/python3.7/site-packages/torch/lib/libtorch_cpu.so /usr/local/lib/python3.7/site-packages/torch/lib/libc10.so -lz -lrt -ldl -ltinfo -lpthread -lm -labsl_str_format_internal -labsl_strings -labsl_strings_internal -labsl_throw_delegate -labsl_int128 -labsl_bad_optional_access -labsl_bad_variant_access -labsl_base -labsl_dynamic_annotations -labsl_log_severity -labsl_spinlock_wait -lomp -lpthread
++ set +x
+[info    ] [PLASMA] Launching plasma compilation! See log file: /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate//sn_boilerplate.plasma_compile.log
+[info    ] PEF file /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate//sn_boilerplate.pef created
+Pef file /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate/sn_boilerplate.pef created
+args: Namespace(acc_test=False,
+batch_size=1,
+command='compile',
+compiled_stats_json=None,
+compiler_configs_file='',
+data_parallel=True,
+debug=False,
+dev_mode=False,
+disable_retry_lower_visible_resources=False,
+distributed_run=False,
+enable_conv_tiling=False,
+ffn_dim_1=32,
+ffn_dim_2=32,
+fp32_params=False,
+grad_accumulation_steps=1,
+host_fifo=False,
+hypersection_arc=False,
+inference=False,
+log_dir=None,
+log_level='warning',
+lr=0.001,
+mac_human_decision=None,
+mac_v1=False,
+mac_v2=False,
+mapping='section',
+metapipe_disable=False,
+microbatch_size=None,
+model_parallel=False,
+momentum=0.0,
+n_chips=1,
+ndtest=False,
+ndtest_mp=False,
+num_classes=10,
+num_epochs=1,
+num_features=784,
+num_spatial_batches=1,
+num_tiles=4,
+output_folder='pef',
+pef_name='sn_boilerplate_2',
+prism_jobs=None,
+recompute_ratio=0.0,
+section_cut_beam_search=0,
+section_cut_sort_order=1,
+verbose=0,
+weight_decay=0.0001,
+world_size=2)
+[Warning][SAMBA][Default] #
+--------------------------------------------------------
+Multiple traces detected! Unexpected behavior may result
+--------------------------------------------------------
+
+[Warning][SAMBA][Default] # The dtype of "targets" to CrossEntropyLoss is torch.int64,
+however only int16 is currently supported,
+implicit conversion will happen
+[Warning][MAC][MemoryOpTransformPass] # Backward graph is trimmed according to requires_grad to save computation.
+[Warning][MAC][WeightShareNodeMergePass] # Backward graph is trimmed according to requires_grad to save computation.
+[Warning][MAC][ReduceCatFaninPass] # Backward graph is trimmed according to requires_grad to save computation.
+[info] Compilation succeeded.
++ /opt/llvm11/bin/clang++ -DAT_PARALLEL_OPENMP=1 -D_THP_CORE -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wno-unused-parameter -Wno-missing-field-initializers -Wno-write-strings -Wno-unknown-pragmas -Wno-missing-braces -fopenmp=libomp -std=gnu++14 -o FfnMnistTorchSamba.cpp.o -c FfnMnistTorchSamba.cpp
++ /opt/llvm11/bin/clang++ -DAT_PARALLEL_OPENMP=1 -D_THP_CORE -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wno-unused-parameter -Wno-missing-field-initializers -Wno-write-strings -Wno-unknown-pragmas -Wno-missing-braces -fopenmp=libomp -std=gnu++14 -o TestFfnMnistTorchSamba.cpp.o -c TestFfnMnistTorchSamba.cpp
++ /opt/llvm11/bin/clang++ -I/opt/llvm12/include -I/usr/local/lib/python3.7/site-packages/torch/lib -I./ -I/opt/sambaflow/include -isystem /usr/local/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/lib/python3.7/site-packages/torch/include -fvisibility=hidden -fno-exceptions -fno-rtti -Werror -Wall -Wno-reorder -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-variable -Wno-strict-aliasing -Wno-unused-local-typedefs -Wunreachable-code-aggressive -Wsometimes-uninitialized -Wconditional-uninitialized -Woverflow -Waddress-of-temporary -Wpointer-arith -Wimplicit -Wbitfield-enum-conversion -Wno-unused-private-field -DSOURCE_PREFIX_LENGTH=84 -g TestFfnMnistTorchSamba.cpp.o FfnMnistTorchSamba.cpp.o -o test_arc_sn_boilerplate_2 -L/opt/sambaflow/lib -L/opt/sambaflow/lib64/ -L/usr/local/lib -L/usr/local/lib64 -L/opt/llvm12/lib -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/opt/sambaflow/lib:/opt/llvm12/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/local/lib64:/usr/local/lib/python3.7/site-packages/torch/lib -lPrismPlasmaTemplates -lPrismPlasma -lPrismShared -lRAIL -lRAILUtil -lBufferNode -lisl -lMLIRDynamicWrapper -lCompilerShared -lCompilerAppsCarraraTemplates -lCompilerAppsRAILTemplates /usr/local/lib/python3.7/site-packages/torch/lib/libc10.so -lpef -lunwind -lyaml-cpp -ltcc /usr/local/lib/python3.7/site-packages/torch/lib/libtorch.so /usr/local/lib/python3.7/site-packages/torch/lib/libtorch_cpu.so /usr/local/lib/python3.7/site-packages/torch/lib/libc10.so -lz -lrt -ldl -ltinfo -lpthread -lm -labsl_str_format_internal -labsl_strings -labsl_strings_internal -labsl_throw_delegate -labsl_int128 -labsl_bad_optional_access -labsl_bad_variant_access -labsl_base -labsl_dynamic_annotations -labsl_log_severity -labsl_spinlock_wait -lomp -lpthread
++ set +x
+[info    ] [PLASMA] Launching plasma compilation! See log file: /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate_2//sn_boilerplate_2.plasma_compile.log
+[info    ] PEF file /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate_2//sn_boilerplate_2.pef created
+Pef file /lambda_stor/homes/wilsonb/sambanova_starter/pef/sn_boilerplate_2/sn_boilerplate_2.pef created
