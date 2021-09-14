@@ -1,11 +1,31 @@
 #!/bin/sh
+# Stop on error
+set -e
+
+#######################
+# Edit these variables.
+#######################
+NUM_THREADS="export OMP_NUM_THREADS=1"
+MODEL_NAME="FFNLogReg"
+#######################
+# Start script timer
+SECONDS=0
+# Temp file location
+#DIRECTORY=$$
+#OUTDIR=${HOME}/${DIRECTORY}
 
 alias snpath='export PATH=$PATH:/opt/sambaflow/bin'
-alias snthreads='export OMP_NUM_THREADS=1'
+alias snthreads=$NUM_THREADS
 alias snvenv='source /opt/sambaflow/venv/bin/activate'
 alias snp='snpath;snthreads;snvenv'
 
 snp
+
+#source /opt/sambaflow/venv/bin/activate
+#cd ${HOME}
+echo "Model: ${MODEL_NAME}"
+echo "Date: " $(date +%m/%d/%y)
+echo "Time: " $(date +%H:%M)
 
 # Change this directory path as necessary.
 cd ~/sambanova_starter
@@ -18,4 +38,6 @@ python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name="sn_
 /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 
 /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+
+echo "Duration: " $SECONDS
 
