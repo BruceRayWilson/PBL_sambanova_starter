@@ -1,6 +1,6 @@
 #!/bin/sh
-# Stop on error
-set -e
+# Stop on error -not
+set e
 
 #######################
 # Edit these variables.
