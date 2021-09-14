@@ -36,32 +36,6 @@ COMMAND="python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-
 echo "COMPILE COMMAND: $COMMAND"
 eval $COMMAND
 
-#python sn_boilerplate_main.py test --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-
-echo "RUN 0"
-# DOES NOT WORK!!
-#RUN 0 COMMAND: /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'
-#usage: sn_boilerplate_main.py [-h] {compile,run,test,measure-performance} ...
-#sn_boilerplate_main.py: error: unrecognized arguments: -ws 8
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
-echo "RUN 0 COMMAND: $COMMAND"
-eval $COMMAND
-
-echo "RUN 1"
-# DOES NOT WORK!!
-#RUN 1 COMMAND: /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'
-#usage: sn_boilerplate_main.py [-h] {compile,run,test,measure-performance} ...
-#sn_boilerplate_main.py: error: unrecognized arguments: --ws 8
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
-echo "RUN 1 COMMAND: $COMMAND"
-eval $COMMAND
-
-echo "RUN 2"
-#ERROR: Unexpected segmentation fault encountered in worker.
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
-echo "RUN 2 COMMAND: $COMMAND"
-eval $COMMAND
-
 
 
 echo "PERF 1"
