@@ -21,6 +21,8 @@ alias snp='snpath;snthreads;snvenv'
 
 snp
 
+export SF_RNT_TILE_AFFINITY=0xf0000000
+
 #source /opt/sambaflow/venv/bin/activate
 #cd ${HOME}
 echo "Model: ${MODEL_NAME}"
@@ -43,12 +45,12 @@ echo "PERF 1"
 
 # [Warning][SAMBA][Default] # If you are measuring performance of data parallel tasks: please explicitly add --ws with world size in CLI.
 # WORKS but warning!!
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02 -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "PERF 1 COMMAND: $COMMAND"
 eval $COMMAND
 
 echo "PERF 2"
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02 -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "PERF 2 COMMAND: $COMMAND"
 eval $COMMAND
 

@@ -45,7 +45,7 @@ echo "RUN 0"
 #RUN 0 COMMAND: /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'
 #usage: sn_boilerplate_main.py [-h] {compile,run,test,measure-performance} ...
 #sn_boilerplate_main.py: error: unrecognized arguments: -ws 8
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02-np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "RUN 0 COMMAND: $COMMAND"
 eval $COMMAND
 
@@ -54,13 +54,13 @@ echo "RUN 1"
 #RUN 1 COMMAND: /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'
 #usage: sn_boilerplate_main.py [-h] {compile,run,test,measure-performance} ...
 #sn_boilerplate_main.py: error: unrecognized arguments: --ws 8
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02-np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "RUN 1 COMMAND: $COMMAND"
 eval $COMMAND
 
 echo "RUN 2"
 #ERROR: Unexpected segmentation fault encountered in worker.
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02-np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "RUN 2 COMMAND: $COMMAND"
 eval $COMMAND
 
@@ -71,12 +71,12 @@ echo "PERF 1"
 
 # [Warning][SAMBA][Default] # If you are measuring performance of data parallel tasks: please explicitly add --ws with world size in CLI.
 # WORKS but warning!!
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02-np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "PERF 1 COMMAND: $COMMAND"
 eval $COMMAND
 
 echo "PERF 2"
-COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -hosts sm-02-np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "PERF 2 COMMAND: $COMMAND"
 eval $COMMAND
 
