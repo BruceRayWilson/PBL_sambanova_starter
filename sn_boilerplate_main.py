@@ -91,6 +91,7 @@ def main(argv):
 
     elif args.command == "measure-performance":
         # Contact SambaNova if output gradients are needed to calculate loss on the host.
+        print(f'args: {args}')
         common_app_driver(  args=args,
                             model=model,
                             inputs=inputs,
