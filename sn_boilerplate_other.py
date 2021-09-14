@@ -104,9 +104,12 @@ def train(args: argparse.Namespace, model: nn.Module, optimizer: samba.optim.SGD
             sn_images = samba.from_torch(images, name='image', batch_dim=0)
             sn_labels = samba.from_torch(labels, name='label', batch_dim=0)
 
-            loss, outputs = samba.session.run(input_tensors=[sn_images, sn_labels],
-                                              output_tensors=model.output_tensors,
-                                              hyperparam_dict=hyperparam_dict)
+            loss, outputs = samba.session.run(  input_tensors=[sn_images, sn_labels],
+                                                output_tensors=model.output_tensors,
+                                                hyperparam_dict=hyperparam_dict,
+                                                data_parallel=args.data_parallel,
+                                                reduce_on_rdu=args.reduce_on_rdu)
+
             loss, outputs = samba.to_torch(loss), samba.to_torch(outputs)
             avg_loss += loss.mean()
 
