@@ -19,5 +19,5 @@ python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name="sn_
 /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 
 #python sn_boilerplate_main.py measure-performance --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
-/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel -ws 8 --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 

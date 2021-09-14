@@ -22,15 +22,15 @@ class FFN(nn.Module):
     def __init__(self, num_features: int, ffn_dim_1: int, ffn_dim_2: int) -> None:
         """Initialize the class."""
         super().__init__()
-        self.gemm1 = nn.Linear(num_features, ffn_dim_1, bias=False)
-        self.relu = nn.ReLU()
-        self.gemm2 = nn.Linear(ffn_dim_1, ffn_dim_2, bias=False)
+        self.net = nn.DataParallel( nn.Sequential(
+            nn.Linear(num_features, ffn_dim_1, bias=False),
+            nn.ReLU(),
+            nn.Linear(ffn_dim_1, ffn_dim_2, bias=False),
+        ))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Step forward."""
-        out = self.gemm1(x)
-        out = self.relu(out)
-        out = self.gemm2(out)
+        out = self.net(x)
         return out
 
 
