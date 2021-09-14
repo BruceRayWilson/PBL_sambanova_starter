@@ -30,14 +30,23 @@ echo "Time: " $(date +%H:%M)
 # Change this directory path as necessary.
 cd ~/sambanova_starter
 
+echo "COMPILE"
 # ws = world_size and its value really doesn't matter for a compile.
-python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name="sn_boilerplate" --output-folder="pef"
+COMMAND="python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=1 --pef-name=sn_boilerplate --output-folder=pef"
+echo "COMPILE COMMAND: $COMMAND"
+eval $COMMAND
 
 #python sn_boilerplate_main.py test --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 
-/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+echo "RUN"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+echo "RUN COMMAND: $COMMAND"
+eval $COMMAND
 
-/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+echo "PERF"
+#COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 2 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+echo "PERF COMMAND: $COMMAND"
+eval $COMMAND
 
 echo "Duration: " $SECONDS
-
