@@ -44,6 +44,10 @@ echo "RUN COMMAND: $COMMAND"
 eval $COMMAND
 
 echo "PERF"
+# The next line is good!!  4347 fps
+
+/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+
 #COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 2 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "PERF COMMAND: $COMMAND"
