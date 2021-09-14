@@ -38,8 +38,17 @@ eval $COMMAND
 
 #python sn_boilerplate_main.py test --distributed-run --pef="pef/sn_boilerplate/sn_boilerplate.pef"
 
+echo "RUN 0"
+# DOES NOT WORK!!
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+echo "RUN 0 COMMAND: $COMMAND"
+eval $COMMAND
+
 echo "RUN 1"
-# DOES NOT WORK!!  COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel -ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+# DOES NOT WORK!!
+#RUN 1 COMMAND: /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'
+#usage: sn_boilerplate_main.py [-h] {compile,run,test,measure-performance} ...
+#sn_boilerplate_main.py: error: unrecognized arguments: --ws 8
 COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
 echo "RUN 1 COMMAND: $COMMAND"
 eval $COMMAND
@@ -49,29 +58,20 @@ COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py run --d
 echo "RUN 2 COMMAND: $COMMAND"
 eval $COMMAND
 
-echo "PERF"
+
+
+echo "PERF 1"
 # The next line is good!!  4347 fps
 
 # [Warning][SAMBA][Default] # If you are measuring performance of data parallel tasks: please explicitly add --ws with world size in CLI.
-# WORKS but warning!!  /opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef="pef/sn_boilerplate/sn_boilerplate.pef"
+# WORKS but warning!!
+COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+echo "PERF 1 COMMAND: $COMMAND"
+eval $COMMAND
 
-#COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 2 python sn_boilerplate_main.py measure-performance --data-parallel --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
+echo "PERF 2"
 COMMAND="/opt/mpich-3.3.2/bin/mpirun -np 8 python sn_boilerplate_main.py measure-performance --data-parallel --ws 8 --reduce-on-rdu --pef='pef/sn_boilerplate/sn_boilerplate.pef'"
-echo "PERF COMMAND: $COMMAND"
+echo "PERF 2 COMMAND: $COMMAND"
 eval $COMMAND
 
 echo "Duration: " $SECONDS
-
-
-
-
-
-
-
-Share Matt's model
-
-
-
-
-
-
