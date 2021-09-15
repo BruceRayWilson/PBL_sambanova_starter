@@ -11,7 +11,6 @@ def add_args(parser: argparse.ArgumentParser):
     parser.add_argument('--acc-test', action='store_true', help='Option for accuracy guard test in CH regression.')
     parser.add_argument('--ffn-dim-1', type=int, default=32)
     parser.add_argument('--ffn-dim-2', type=int, default=32)
-    parser.add_argument('--distributed-run', action='store_true', help='Option for doing a distributed run.')
 
 
 def add_run_args(parser: argparse.ArgumentParser):
@@ -20,5 +19,3 @@ def add_run_args(parser: argparse.ArgumentParser):
                         type=str,
                         default='mnist_data',
                         help="The folder to download the MNIST dataset to.")
-
-

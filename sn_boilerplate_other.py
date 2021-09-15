@@ -15,47 +15,6 @@ from sambaflow.samba.utils.argparser import parse_app_args
 from sambaflow.samba.utils.pef_utils import get_pefmeta
 from sambaflow.samba.utils.dataset.mnist import dataset_transform
 
-"""
-def prepare_dataloaders_original(hparams):
-    # Get data, data loaders and collate function ready
-    trainset = TextMelLoader(hparams.training_files, hparams)
-    valset = TextMelLoader(hparams.validation_files, hparams)
-    collate_fn = TextMelCollate(hparams.n_frames_per_step)
-
-    if hparams.distributed_run:
-        train_sampler = DistributedSampler(trainset)
-        shuffle = False
-    else:
-        train_sampler = None
-        shuffle = True
-
-    train_loader = DataLoader(trainset, num_workers=1, shuffle=shuffle,
-                              sampler=train_sampler,
-                              batch_size=hparams.batch_size, pin_memory=False,
-                              drop_last=True, collate_fn=collate_fn)
-    return train_loader, valset, collate_fn
-
-
-def prepare_dataloaders(args: argparse.Namespace) -> Tuple[torch.utils.data.DataLoader]:
-    # Get data, data loaders and collate function ready
-    trainset = TextMelLoader(hparams.training_files, hparams)
-    valset = TextMelLoader(hparams.validation_files, hparams)
-    collate_fn = TextMelCollate(hparams.n_frames_per_step)
-
-    if hparams.distributed_run:
-        train_sampler = DistributedSampler(trainset)
-        shuffle = False
-    else:
-        train_sampler = None
-        shuffle = True
-
-    train_loader = DataLoader(trainset, num_workers=1, shuffle=shuffle,
-                              sampler=train_sampler,
-                              batch_size=hparams.batch_size, pin_memory=False,
-                              drop_last=True, collate_fn=collate_fn)
-    return train_loader, valset, collate_fn
-"""
-
 
 def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataLoader]:
     """Train the model on RDU using the MNIST dataset (images and labels)."""
@@ -67,7 +26,7 @@ def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataL
                                               train=False,
                                               transform=dataset_transform(args))
 
-    print(f'Distributed run: {args.data_parallel}')
+    print(f'DataParallel run: {args.data_parallel}')
     if args.data_parallel:
         train_sampler = DistributedSampler(train_dataset)
         shuffle = False

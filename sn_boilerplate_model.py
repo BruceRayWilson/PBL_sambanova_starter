@@ -89,7 +89,7 @@ class FFNLogReg(nn.Module):
             X_randn: A Samba tensor representing the correct shape for model inputs.
             Y_randint: A Samba tensor representing the correct shape for model outputs.
         """
-        # If the first argument to samba,randn is batch size then the batch_dim is 0.
+        # If the first argument to samba.randn is batch size then the batch_dim is 0.
         X_randn = samba.randn(args.batch_size, args.num_features, name='image', batch_dim=0).bfloat16().float()
 
         low_inclusive = 0
