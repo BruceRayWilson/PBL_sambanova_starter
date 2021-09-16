@@ -22,11 +22,11 @@ class FFN(nn.Module):
     def __init__(self, num_features: int, ffn_dim_1: int, ffn_dim_2: int) -> None:
         """Initialize the class."""
         super().__init__()
-        self.net = nn.DataParallel( nn.Sequential(
+        self.net = nn.Sequential(
             nn.Linear(num_features, ffn_dim_1, bias=False),
             nn.ReLU(),
             nn.Linear(ffn_dim_1, ffn_dim_2, bias=False),
-        ))
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Step forward."""
@@ -40,7 +40,7 @@ class LogReg(nn.Module):
     def __init__(self, num_features: int, num_classes: int):
         """Initialize the class."""
         super().__init__()
-        self.lin_layer = nn.DataParallel( nn.Linear(in_features=num_features, out_features=num_classes, bias=False) )
+        self.lin_layer = nn.Linear(in_features=num_features, out_features=num_classes, bias=False)
         self.criterion = nn.CrossEntropyLoss()
 
     # Note: The forward method can take more than two arguments.
