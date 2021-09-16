@@ -16,6 +16,8 @@ from sambaflow import samba
 #from sambaflow.samba.utils.dataset.mnist import dataset_transform
 
 
+# Checkpoint
+
 class FFN(nn.Module):
     """Feed Forward Network."""
 
