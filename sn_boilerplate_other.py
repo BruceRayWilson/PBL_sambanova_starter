@@ -28,6 +28,8 @@ def prepare_dataloader(args: argparse.Namespace) -> Tuple[torch.utils.data.DataL
 
     print(f'DataParallel run: {args.data_parallel}')
     if args.data_parallel:
+        # Sampler defines the strategy to draw samples from the dataset.
+        # If specified, shuffle must not be specified.  https://pytorch.org/docs/stable/data.html
         train_sampler = DistributedSampler(train_dataset)
         shuffle = False
     else:

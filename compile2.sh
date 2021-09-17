@@ -1,5 +1,5 @@
 #!/bin/bash
-export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=2
 source /opt/sambaflow/venv/bin/activate
 #######################
 # Start script timer

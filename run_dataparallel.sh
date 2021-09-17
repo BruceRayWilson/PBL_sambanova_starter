@@ -1,7 +1,8 @@
 #!/bin/bash
 # Stop on error -not
+set -e
+# Print commands
 set -x
-#set e
 
 #######################
 # Edit these variables.
