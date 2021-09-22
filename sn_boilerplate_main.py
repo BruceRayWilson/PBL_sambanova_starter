@@ -78,15 +78,12 @@ def main(argv):
         """
 
     elif args.command == "test":
-        utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
+        samba.utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         outputs = model.output_tensors
         test(args, model, inputs, outputs)
 
     elif args.command == "run":
-        #backend = 'mpi'
-        #dist.init_process_group(backend)
-
-        utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
+        samba.utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
 
     elif args.command == "measure-performance":

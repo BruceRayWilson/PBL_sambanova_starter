@@ -116,7 +116,7 @@ def test(args: argparse.Namespace, model: nn.Module, inputs: Tuple[samba.SambaTe
     for i, (output_samba, output_gold) in enumerate(zip(outputs_samba, outputs_gold)):
         print('samba:', output_samba)
         print('gold:', output_gold)
-        utils.assert_close(output_samba, output_gold, f'forward output #{i}', threshold=3e-3)
+        samba.utils.assert_close(output_samba, output_gold, f'forward output #{i}', threshold=3e-3)
 
     if not args.inference:
         # training mode, check two of the gradients
@@ -127,4 +127,4 @@ def test(args: argparse.Namespace, model: nn.Module, inputs: Tuple[samba.SambaTe
         gemm1_grad_gold = model.ffn.gemm1.weight.grad
         gemm1_grad_samba = model.ffn.gemm1.weight.sn_grad
 
-        utils.assert_close(gemm1_grad_gold, gemm1_grad_samba, 'ffn__gemm1__weight__grad', threshold=3e-3)
+        samba.utils.assert_close(gemm1_grad_gold, gemm1_grad_samba, 'ffn__gemm1__weight__grad', threshold=3e-3)
