@@ -23,18 +23,18 @@ username@sm-01:~$ export PATH=$PATH:/opt/sambaflow/bin;export OMP_NUM_THREADS=1;
 ## Cloning Repo on SambaNova
 
 ```bash
-username@sm-01:~$ git clone https://github.com/BruceRayWilson/sambanova_starter
+(venv) username@sm-01:~$ git clone https://git.cels.anl.gov/ai-testbed-apps/sambanova/sambanova_starter.git
 Cloning into 'sambanova_starter'...
 Username for 'https://github.com': < username >
-Password for 'https://username@github.com': < password or PAC >
+Password for 'https://username@github.com': < password or PAT >
 
 ## Git
 
 Do any necessary git commands.
 
 ```bash
-[username@medulla1 ~]$ cd sambanova_starter
-[username@medulla1 sambanova_starter]$ git checkout < branch >
+(venv) username@sm-01:~$ cd sambanova_starter
+(venv) username@sm-01:~/sambanova_starter$ git checkout < branch >
 ```
 
 Example:
@@ -45,10 +45,10 @@ git checkout feature/100-data-parallel
 
 ## Change Directory
 
+If you haven't already:
+
 ```bash
-# [username@medulla1 ~sambanova_starter]$ cd model/pytorch
-or
-[username@medulla1 ~]$ cd 3D-PyTorch/model/pytorch
+(venv) username@sm-01:~$ cd sambanova_starter
 ```
 
 ## Commands Arguments
