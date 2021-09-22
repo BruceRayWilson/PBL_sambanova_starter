@@ -40,7 +40,7 @@ Do any necessary git commands.
 Example:
 
 ```bash
-git checkout feature/001-start
+git checkout feature/100-data-parallel
 ```
 
 ## Change Directory
