@@ -62,12 +62,12 @@ def main(argv):
                               pef_metadata=get_pefmeta(args, model))
 
     elif args.command == "test":
-        utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
+        samba.utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         outputs = model.output_tensors
         test(args, model, inputs, outputs)
 
     elif args.command == "run":
-        utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
+        samba.utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
         train(args, model, optimizer)
 
     elif args.command == "measure-performance":
