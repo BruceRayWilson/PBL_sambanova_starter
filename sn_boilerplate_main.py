@@ -54,7 +54,6 @@ def main(argv):
 
     if args.command == "compile":
         # Run model analysis and compile. This step will produce a PEF.
-        print(f'args: {args}')
         samba.session.compile(model,
                               inputs,
                               optimizer,
@@ -62,20 +61,6 @@ def main(argv):
                               app_dir=utils.get_file_dir(__file__),
                               config_dict=vars(args),
                               pef_metadata=get_pefmeta(args, model))
-
-        """
-        # If running two models, would have to change args.pef='pef/sn_boilerplate/sn_boilerplate.pef'.
-        args.pef_name='sn_boilerplate_2'
-        args.output_folder='pef_2'
-        print(f'args: {args}')
-        samba.session.compile(model,
-                              inputs,
-                              optimizer,
-                              name=name,
-                              app_dir=utils.get_file_dir(__file__),
-                              config_dict=vars(args),
-                              pef_metadata=get_pefmeta(args, model))
-        """
 
     elif args.command == "test":
         samba.utils.trace_graph(model, inputs, optimizer, pef=args.pef, mapping=args.mapping)
@@ -88,7 +73,6 @@ def main(argv):
 
     elif args.command == "measure-performance":
         # Contact SambaNova if output gradients are needed to calculate loss on the host.
-        print(f'args: {args}')
         common_app_driver(  args=args,
                             model=model,
                             inputs=inputs,
