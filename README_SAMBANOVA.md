@@ -59,7 +59,8 @@ See the folling link for a list of arguments.
 ## Sbatch
 
 ```bash
-sbatch compile.sh
 sbatch run.sh
-sbatch run_dataparallel.sh
+
+sbatch compile_dataparallel.sh
+sbatch --gres=rdu:2 run_dataparallel.sh
 ```

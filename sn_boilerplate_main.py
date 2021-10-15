@@ -52,6 +52,7 @@ def main(argv):
 
     name = 'ffn_mnist_torch'
 
+    print('args: ', args)
     if args.command == "compile":
         # Run model analysis and compile. This step will produce a PEF.
         samba.session.compile(model,

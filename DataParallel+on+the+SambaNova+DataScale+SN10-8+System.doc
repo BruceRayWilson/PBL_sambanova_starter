@@ -1,0 +1,622 @@
+Date: Fri, 15 Oct 2021 11:00:15 -0500 (CDT)
+Message-ID: <1354180651.1153.1634313615504@confluence-cels-vmw-01.cels.anl.gov>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_1152_284586848.1634313615500"
+
+------=_Part_1152_284586848.1634313615500
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>DataParallel on the SambaNova DataScale SN10-8 System</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>DataParallel on the SambaNova DataScale SN10-8 System</h1>
+    <div class=3D"Section1">
+        <h1 id=3D"DataParallelontheSambaNovaDataScaleSN108System-trueBoiler=
+plateFiles"><style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1634313615416 {padding: 0px;}
+div.rbtoc1634313615416 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1634313615416 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1634313615416">=20
+<ul class=3D"toc-indentation">=20
+<li><span class=3D"TOCOutline">1</span> <a href=3D"#DataParallelontheSambaN=
+ovaDataScaleSN108System-trueBoilerplateFiles">Boilerplate Files</a></li>=20
+<li><span class=3D"TOCOutline">2</span> <a href=3D"#DataParallelontheSambaN=
+ovaDataScaleSN108System-ModelOverview">Model Overview</a></li>=20
+<li><span class=3D"TOCOutline">3</span> <a href=3D"#DataParallelontheSambaN=
+ovaDataScaleSN108System-Updatesn_boilerplate_other.py">Update sn_boilerplat=
+e_other.py</a>=20
+<ul class=3D"toc-indentation">=20
+<li><span class=3D"TOCOutline">3.1</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-Import">Import</a></li>=20
+<li><span class=3D"TOCOutline">3.2</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-Checkfordata_parallelArgument">Check for data_par=
+allel Argument</a></li>=20
+<li><span class=3D"TOCOutline">3.3</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-DataLoader">DataLoader</a></li>=20
+<li><span class=3D"TOCOutline">3.4</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-TrainMethod">Train Method</a></li>=20
+<li><span class=3D"TOCOutline">3.5</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-DataParallel">DataParallel</a></li>=20
+<li><span class=3D"TOCOutline">3.6</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-ShellScripts">Shell Scripts</a>=20
+<ul class=3D"toc-indentation">=20
+<li><span class=3D"TOCOutline">3.6.1</span> <a href=3D"#DataParallelontheSa=
+mbaNovaDataScaleSN108System-CompileScript">Compile Script</a></li>=20
+<li><span class=3D"TOCOutline">3.6.2</span> <a href=3D"#DataParallelontheSa=
+mbaNovaDataScaleSN108System-RunScript">Run Script</a></li>=20
+<li><span class=3D"TOCOutline">3.6.3</span> <a href=3D"#DataParallelontheSa=
+mbaNovaDataScaleSN108System-Slurm">Slurm</a></li>=20
+<li><span class=3D"TOCOutline">3.6.4</span> <a href=3D"#DataParallelontheSa=
+mbaNovaDataScaleSN108System-RunDataParallelScript">Run DataParallel Script<=
+/a></li>=20
+</ul> </li>=20
+<li><span class=3D"TOCOutline">3.7</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-TileAffinity">Tile Affinity</a></li>=20
+</ul> </li>=20
+<li><span class=3D"TOCOutline">4</span> <a href=3D"#DataParallelontheSambaN=
+ovaDataScaleSN108System-Slurm.1">Slurm</a>=20
+<ul class=3D"toc-indentation">=20
+<li><span class=3D"TOCOutline">4.1</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-Data-Parallel">Data-Parallel</a></li>=20
+<li><span class=3D"TOCOutline">4.2</span> <a href=3D"#DataParallelontheSamb=
+aNovaDataScaleSN108System-RegularRun">Regular Run</a></li>=20
+</ul> </li>=20
+<li><span class=3D"TOCOutline">5</span> <a href=3D"#DataParallelontheSambaN=
+ovaDataScaleSN108System-Repositories">Repositories</a></li>=20
+</ul>=20
+</div>Boilerplate Files</h1>
+<p>This tutorial uses four boilerplate files:</p>
+<ol>
+<li>sn_boilerplate_main.py;
+<ol>
+<li>Contains main()</li>
+</ol></li>
+<li>sn_boilerplate_args.py;
+<ol>
+<li>Contains CLI args definitions</li>
+</ol></li>
+<li>sn_boilerplate_model.py; and
+<ol>
+<li>Contains AI model</li>
+</ol></li>
+<li>sn_boilerplate_other.py.
+<ol>
+<li>Contains train(), test(), and more</li>
+</ol></li>
+</ol>
+<h1 id=3D"DataParallelontheSambaNovaDataScaleSN108System-ModelOverview">Mod=
+el Overview</h1>
+<p>The model predicts numerals in the MNIST data set.</p>
+<p>The network has a forward feed network followed by a logistics regressio=
+n network.</p>
+<h1 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Updatesn_boilerpla=
+te_other.py">Update sn_boilerplate_other.py</h1>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Import">Import</h2=
+>
+<p>Import <code>DistributedSampler </code>.</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: py; gutter: false; theme: Confluence" data-theme=3D"Confluence">from torc=
+h.utils.data.distributed import DistributedSampler</pre>=20
+</div>
+</div>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Checkfordata_paral=
+lelArgument">Check for data_parallel Argument</h2>
+<p><span>This code </span><span>works either with D</span><span>ataParallel=
+ or without.&nbsp; M</span><span>ore specifically, distributed data or </sp=
+an><span>without.&nbsp; T</span><span>o accomplish this, </span><span>utili=
+ze the <code>--data-parallel</code> </span><span>argument.</span></p>
+<p>Create a <code>DistributedSampler</code> only if the <code>--data-parall=
+el</code> argument is specified.</p>
+<p><span>Distributed sampler deals with the </span><span>shuffling of the d=
+ata&nbsp;</span><span>so set shuffle equal </span><span>to <code>False</cod=
+e>.</span></p>
+<p><span>If not using <code>DistributedSampler</code> </span><span>set <cod=
+e>train_sampler =3D None</code> </span><span>and <code>shuffle =3D True</co=
+de>.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: py; gutter: false; theme: Confluence" data-theme=3D"Confluence">    print=
+(f'DataParallel run: {args.data_parallel}')
+    if args.data_parallel:
+        # Sampler defines the strategy to draw samples from the dataset.
+        # If specified, shuffle must not be specified.  https://pytorch.org=
+/docs/stable/data.html
+        train_sampler =3D DistributedSampler(train_dataset)
+        shuffle =3D False
+    else:
+        train_sampler =3D None
+        shuffle =3D True</pre>=20
+</div>
+</div>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-DataLoader">DataLo=
+ader</h2>
+<p><span>When setting up the <code>DataLoader</code>, </span><span>there ar=
+e a couple of things to add versus not using a <code>DataLoader</code>.&nbs=
+p; W</span><span>e now have&nbsp;</span><span>number of workers equals to o=
+ne. A</span><span>nd also added </span><span><code>sampler=3Dtrain_sampler<=
+/code>.</span></p>
+<p><span>Use the <code>shuffle</code> variable from above.&nbsp; And set dr=
+op_last=3DT</span><span>rue.</span>&nbsp; T<span>his is just in case that t=
+he size of the data set is not a multiple of the batch size.</span></p>
+<p><span>Also add drop_last=3DTrue for the <code>test_loader</code>.</span>=
+</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: py; gutter: false; theme: Confluence" data-theme=3D"Confluence">    # Dat=
+a loader (input pipeline)
+    train_loader =3D torch.utils.data.DataLoader( dataset=3Dtrain_dataset,
+                                                num_workers=3D1,
+                                                sampler=3Dtrain_sampler,
+                                                batch_size=3Dargs.batch_siz=
+e,
+                                                shuffle=3Dshuffle,
+                                                drop_last=3DTrue
+                                                )
+    test_loader =3D torch.utils.data.DataLoader(  dataset=3Dtest_dataset,
+                                                batch_size=3Dargs.batch_siz=
+e,
+                                                shuffle=3DFalse,
+                                                drop_last=3DTrue
+                                                )</pre>=20
+</div>
+</div>
+<h2 class=3D"auto-cursor-target" id=3D"DataParallelontheSambaNovaDataScaleS=
+N108System-TrainMethod">Train Method</h2>
+<p><span>This is very, very simple.</span> <span>all we have done is we hav=
+e added these two lines.&nbsp; Very straightforward copy and paste.</span>&=
+nbsp; W<span>e have data_parallel=3Dargs.data_parallel.</span>&nbsp; A<span=
+>nd reduce_on_rdu=3Dargs.reduce_on_rdu.</span>&nbsp; T<span>hese arguments =
+are added automatically.</span>&nbsp; Y<span>ou do not need to modify your =
+args file.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: py; gutter: false; theme: Confluence" data-theme=3D"Confluence">         =
+   loss, outputs =3D samba.session.run(  input_tensors=3D[sn_images, sn_lab=
+els],
+                                                output_tensors=3Dmodel.outp=
+ut_tensors,
+                                                hyperparam_dict=3Dhyperpara=
+m_dict,
+                                                data_parallel=3Dargs.data_p=
+arallel,
+                                                reduce_on_rdu=3Dargs.reduce=
+_on_rdu)</pre>=20
+</div>
+</div>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-DataParallel">Data=
+Parallel</h2>
+<p><span>So where do we actually use <code>nn.DataParallel</code>?&nbsp; Th=
+e answer is we don't.</span>&nbsp; S<span>ambaNova has taken care of all of=
+ this in the background.</span>&nbsp; A<span>ll we have to do is use <code>=
+DistributedSampler</code> and everything else is automatic.<br></span></p>
+<p><span>The other three files do not need to be modified.</span></p>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-ShellScripts"><spa=
+n>Shell Scripts</span></h2>
+<p><span>Let's take a look at the shell scripts that we will be using.</spa=
+n></p>
+<h3 id=3D"DataParallelontheSambaNovaDataScaleSN108System-CompileScript">Com=
+pile Script</h3>
+<p><span>Here we have the compile script.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: true; theme: Confluence" data-theme=3D"Confluence">#!/bin/b=
+ash
+export OMP_NUM_THREADS=3D8
+source /opt/sambaflow/venv/bin/activate
+#######################
+# Start script timer
+SECONDS=3D0
+
+echo "COMPILE"
+python sn_boilerplate_main.py compile --data-parallel -ws 2 -b=3D1 --pef-na=
+me=3Dsn_boilerplate
+
+echo "Duration: " $SECONDS</pre>=20
+</div>
+</div>
+<p><span>Let's take a look at the second line here.</span>&nbsp; W<span>e'r=
+e setting OMP_NUM_THREADS equals to eight.</span>&nbsp; S<span>o this is do=
+ne so that we have more threads so that the compilation of the script occur=
+s more quickly.</span></p>
+<p><span>On line number nine, we're going to use the compile argument to co=
+mpile the model.</span></p>
+<p><span>On line number 11, </span><span>we're going to go ahead and echo h=
+ow long the compile took.</span></p>
+<h3 id=3D"DataParallelontheSambaNovaDataScaleSN108System-RunScript">Run Scr=
+ipt</h3>
+<p><span>Here is the run script.</span>&nbsp; I<span>t does the the usual i=
+tems compile, test, run and measure performance.</span>&nbsp; T<span>his sc=
+ript just does a standard run.&nbsp; It does not use data parallel or the d=
+istributed sampler.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: false; theme: Confluence" data-theme=3D"Confluence">#!/bin/=
+sh
+
+# Change this directory path as necessary.
+cd ~/sambanova_starter
+python sn_boilerplate_main.py compile -b=3D1 --pef-name=3D"sn_boilerplate" =
+--output-folder=3D"pef"
+python sn_boilerplate_main.py test --pef=3D"pef/sn_boilerplate/sn_boilerpla=
+te.pef"
+python sn_boilerplate_main.py run --pef=3D"pef/sn_boilerplate/sn_boilerplat=
+e.pef"
+python sn_boilerplate_main.py measure-performance --pef=3D"pef/sn_boilerpla=
+te/sn_boilerplate.pef"</pre>=20
+</div>
+</div>
+<h3 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Slurm">Slurm</h3>
+<p><span>When you start Slurm and you're using more than one RDU, you shoul=
+d tell Slurm how many RDUs you are using.</span>&nbsp; D<span>o this by usi=
+ng the <code>gres</code> CLI argument.&nbsp; Then the number of RDUs that y=
+ou want to use.</span></p>
+<p><span>Here we are requesting two RDUs.&nbsp; This number should match th=
+e <code>mpirun</code> argument <code>np</code>.&nbsp; In <code>run_datapara=
+llel.sh</code> below, <code>np</code> is also two.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: false; theme: Confluence" data-theme=3D"Confluence">sbatch =
+--gres=3Drdu:2 run_dataparallel.sh</pre>=20
+</div>
+</div>
+<h3 id=3D"DataParallelontheSambaNovaDataScaleSN108System-RunDataParallelScr=
+ipt">Run DataParallel Script</h3>
+<p><span>There is more information in here than in the previous scripts.</s=
+pan></p>
+<p><span>We're going to go ahead and name the model on line ten.</span></p>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<colgroup>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class=3D"confluenceTh">Note:&nbsp; Compile Separately.</th>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span>We're going to be using <code>mpirun</code>.</span>&nbsp; Use the =
+<code>np</code> argument to s<span>pecify the number of processors as two, =
+and then we go ahead and execute our script.&nbsp; U</span><span>se "run", =
+it is used for training, with the <code>data-parallel</code> argument, and =
+also the <code>reduce-on-rdu</code> argument.</span>&nbsp; T<span>hen speci=
+fy the location of the pef file</span></p>
+<p><span>Let's take a look at the next command.&nbsp; S</span><span>o the n=
+ext command is pretty much the same, except for we're going to use measure-=
+performance command.</span></p>
+<p><span>.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: true; theme: Confluence" data-theme=3D"Confluence">#!/bin/b=
+ash
+# Stop on error
+set -e
+# Print commands
+set -x
+
+#######################
+# Edit these variables.
+#######################
+MODEL_NAME=3D"FFNLogReg"
+#######################
+# Start script timer
+SECONDS=3D0
+
+echo "Model: ${MODEL_NAME}"
+echo "Date: " $(date +%m/%d/%y)
+echo "Time: " $(date +%H:%M)
+
+# Change the fully qualified directory path as necessary.
+
+echo "COMPILE Separately!!"
+
+echo "RUN"
+/opt/mpich-3.3.2/bin/mpirun -np 2 python /homes/wilsonb/sambanova_starter_A=
+NL/sn_boilerplate_main.py run --data-parallel --reduce-on-rdu --pef=3D/home=
+s/wilsonb/sambanova_starter_ANL/out/sn_boilerplate/sn_boilerplate.pef
+
+echo "PERF"
+/opt/mpich-3.3.2/bin/mpirun -np 2 python sn_boilerplate_main.py measure-per=
+formance --data-parallel --reduce-on-rdu --pef=3D/homes/wilsonb/sambanova_s=
+tarter_ANL/out/sn_boilerplate/sn_boilerplate.pef
+
+echo "Duration: " $SECONDS</pre>=20
+</div>
+</div>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-TileAffinity"><spa=
+n>Tile Affinity<br></span></h2>
+<p><span>The correct place to use the tile affinity would be on the command=
+ line.</span>&nbsp; I<span>f you were to use the tile affinity within slurm=
+, if somebody else was already using those RDUs, your job would fail.</span=
+></p>
+<p><span>Here we are</span><span>&nbsp;specifying tiles six and seven.</spa=
+n> &nbsp;<span>They are zero index.</span></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: false; theme: Confluence" data-theme=3D"Confluence">export =
+SF_RNT_TILE_AFFINITY=3D0xff000000</pre>=20
+</div>
+</div>
+<h1 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Slurm.1">Slurm</h1=
+>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-Data-Parallel">Dat=
+a-Parallel</h2>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<colgroup>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class=3D"confluenceTd"><code><span style=3D"color: rgb(0,0,0);letter-sp=
+acing: 0.0px;">sbatch compile_dataparallel.sh<br></span><span style=3D"colo=
+r: rgb(0,0,0);letter-spacing: 0.0px;">sbatch --gres=3Drdu:2 run_dataparalle=
+l.sh</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id=3D"DataParallelontheSambaNovaDataScaleSN108System-RegularRun">Regula=
+r Run</h2>
+<div class=3D"table-wrap">
+<table class=3D"confluenceTable">
+<colgroup>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class=3D"confluenceTd"><p><code><span style=3D"color: rgb(0,0,0);">sbat=
+ch run.sh</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class=3D"auto-cursor-target" id=3D"DataParallelontheSambaNovaDataScaleS=
+N108System-Repositories">Repositories</h1>
+<ul>
+<li><a href=3D"https://git.cels.anl.gov/ai-testbed-apps/sambanova/sambanova=
+_starter.git" class=3D"external-link" rel=3D"nofollow">https://git.cels.anl=
+.gov/ai-testbed-apps/sambanova/sambanova_starter.git</a></li>
+<li><a href=3D"https://github.com/BruceRayWilson/sambanova_starter.git" cla=
+ss=3D"external-link" rel=3D"nofollow">https://github.com/BruceRayWilson/sam=
+banova_starter.git</a></li>
+</ul>
+<p>Branch: feature/100-data-parallel</p>
+    </div>
+</body>
+</html>
+------=_Part_1152_284586848.1634313615500--

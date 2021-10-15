@@ -1,4 +1,8 @@
 #!/bin/sh
+#######################
+# Run script
+# sbatch run.sh
+#######################
 
 # Change this directory path as necessary.
 cd ~/sambanova_starter
